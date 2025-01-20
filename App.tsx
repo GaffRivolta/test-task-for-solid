@@ -1,32 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Main } from './components/Main';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
-  const [backgroundColor, setBackgroundColor] = useState('#fff');
-
-  // Function that generates a random color based on hexadecimal numbers.
-  const generateBackgroundColor = () => {
-    let letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    setBackgroundColor(color);
-  }
-
   return (
-    <View style={{...styles.container, backgroundColor: backgroundColor}} onTouchStart={() => generateBackgroundColor()}>
-      <Text>Hello there</Text>
+    <SafeAreaView style={{...styles.container}}>
       <StatusBar style="auto" />
-    </View>
+      <Main/>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
