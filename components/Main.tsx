@@ -18,7 +18,7 @@ export function Main() {
       style={{ ...styles.container, backgroundColor: backgroundColor }}
       onTouchStart={() => generateBackgroundColor()}
     >
-      <Text>Hello there</Text>
+      <Text style={styles.helloText}>Hello there</Text>
     </View>
   );
 }
@@ -28,5 +28,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  helloText: {
+    fontSize: 32,
+    fontWeight: "thin",
   },
 });
